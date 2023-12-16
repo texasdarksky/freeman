@@ -1,0 +1,25 @@
+2023-12-05 21:26:44.889 : UDM Started.
+2023-12-05 21:26:45.114 : Looking for .goto files here: C:\ProgramData\Unihedron\\*.goto
+2023-12-05 21:26:45.115 : 0: default.goto
+2023-12-05 21:26:45.492 : UDM Version: 1.0.0.343
+2023-12-05 21:26:45.493 : Operating system: Windows
+2023-12-05 21:26:45.493 : Started at: 2023-12-05 15:26:45
+2023-12-05 21:26:45.493 : Started as:  C:\Users\amypj\AppData\Local\Programs\Unihedron\udm.exe
+2023-12-05 21:26:45.494 : ConfigFilePath: C:\ProgramData\Unihedron\udm.ini
+2023-12-05 21:26:45.505 : Press the Version or Reading button to see results from the selected device.
+2023-12-05 21:26:45.507 : FindUSB: Checking for Windows USB attached devices.
+2023-12-05 21:26:45.508 : FindUSB: At least one COMM port is active.
+2023-12-05 21:26:45.508 : FindUSB: Connected device = "COM1"
+2023-12-05 21:26:45.508 : FindUSB: Checking Registry for: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\ ...
+2023-12-05 21:26:45.508 : FindUSB: FTDI driver has never been installed.
+2023-12-05 21:26:45.509 : Looking for Ethernet connections on this machine.
+2023-12-05 21:26:45.516 : This machine uses IP: 192.168.86.159 , will use a multicast to: 192.168.86.255
+2023-12-05 21:26:45.516 : Also doing full broadcast to fix for double octet subnet mask, using multicast to: 255.255.255.255
+2023-12-05 21:26:49.535 : Finished looking for Ethernet devices.
+2023-12-05 21:26:49.536 : Getting InstrumentIDs.
+2023-12-05 21:26:49.537 : No devices were found
+2023-12-05 21:26:49.537 : Populated FoundDevices window.
+2023-12-05 21:26:49.537 : No devices found, disabling all disallowed control buttons.
+2023-12-05 21:28:57.251 : Plotting file: C:\SQM\FreemanRanch\20231109_131602_.dat
+2023-12-05 21:40:57.200 : Plotting file: C:\SQM\FreemanRanch\20231109_131602_.dat
+2023-12-05 21:41:08.336 : Plotting file: C:\SQM\FreemanRanch\20231109_131602_.dat
