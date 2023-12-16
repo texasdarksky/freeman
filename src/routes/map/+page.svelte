@@ -10,6 +10,7 @@
     import VectorSource from 'ol/source/Vector';
 	import TileLayer from 'ol/layer/Tile';
     import VectorLayer from 'ol/layer/Vector';
+	import { fromLonLat } from 'ol/proj';
 
     // import colormap from 'colormap';
     // const min = 1;
@@ -38,14 +39,14 @@
 				})
 			],
 			view: new View({
-                center: [0, 0],
-				zoom: 4
+                center: fromLonLat([-100, 33]),
+				zoom: 5
 			})
 		});
         
         const vectorLayer = new VectorLayer({
             source: new VectorSource({
-                url: '/geodata/countries.geojson',
+                url: '/geodata/2012.json',
                 format: new GeoJSON(),
             }),
             // style: {
