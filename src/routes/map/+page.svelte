@@ -5,62 +5,62 @@
 	import 'ol/ol.css';
 	import Map from 'ol/Map';
 	import View from 'ol/View';
-    import GeoJSON from 'ol/format/GeoJSON';
+	import GeoJSON from 'ol/format/GeoJSON';
 	import OSM from 'ol/source/OSM';
-    import VectorSource from 'ol/source/Vector';
+	import VectorSource from 'ol/source/Vector';
 	import TileLayer from 'ol/layer/Tile';
-    import VectorLayer from 'ol/layer/Vector';
-	import { fromLonLat } from 'ol/proj';
+	import VectorLayer from 'ol/layer/Vector';
+	import { fromLonLat, useGeographic } from 'ol/proj';
+	// import WebGLTile from 'ol/layer/WebGLTile';
+	// import { PMTilesRasterSource } from 'ol-pmtiles';
 
-    // import colormap from 'colormap';
-    // const min = 1;
-    // const max = 200;
-    // const steps = 8;
-    // const ramp = colormap({
-    //     colormap: 'blackbody',
-    //     nshades: steps,
-    // });
-
-    // function clamp(value: Number, low: Number, high:Number) {
-    //     return Math.max(low, Math.min(value, high));
-    // };
-
-    // function getColor(feature) {
-    //     const popEst = feature.get('POP_EST');
-
-    // }
-    
-	onMount(() => {
-        const map = new Map({
-            target: 'map',
-			layers: [
-                new TileLayer({
-                    source: new OSM()
-				})
-			],
-			view: new View({
-                center: fromLonLat([-100, 33]),
-				zoom: 5
-			})
-		});
-        
-        const vectorLayer = new VectorLayer({
-            source: new VectorSource({
-                url: '/geodata/2012.json',
-                format: new GeoJSON(),
-            }),
-            // style: {
-            //     'fill-color': ['string', ['get', 'COLOR'], '#eee'],
-            // }
-        });
-        
-        map.addLayer(vectorLayer);
+	let mapDiv: HTMLDivElement;
+	const view = new View({
+		center: fromLonLat([-100, 33]),
+		zoom: 5
 	});
-    
-    export let data: PageData;
-    console.log(data.msg);
+	let map: Map;
+	let background = new TileLayer({
+		source: new OSM()
+	});
+	let alrLayer2012 = new VectorLayer({
+		source: new VectorSource({
+			url: '/geodata/2012.json',
+			format: new GeoJSON()
+		})
+	});
+	// let alrLayer2012old = new VectorLayer({
+	// 	source: new VectorSource({
+	// 		url: '/geodata/2012old.json',
+	// 		format: new GeoJSON()
+	// 	})
+	// });
+
+	// const rasterLayer = new WebGLTile({
+	// 	source: new PMTilesRasterSource({
+	// 		url: '/geodata/output.pmtiles',
+	// 		// attributions: ['https://github.com/tilezen/joerd/blob/master/docs/attribution.md'],
+	// 		tileSize: [512, 512]
+	// 	})
+	// });
+
+	// useGeographic();
+
+	onMount(() => {
+		map = new Map({
+			target: mapDiv,
+			view: view
+		});
+		map.addLayer(background);
+		map.addLayer(alrLayer2012);
+		// map.addLayer(alrLayer2012old);
+		// map.addLayer(rasterLayer);
+	});
+
+	export let data: PageData;
+	console.log(data.msg);
 </script>
 
 <div class="w-screen h-screen">
-	<div id="map" class="w-full h-5/6 mt-24" />
+	<div bind:this={mapDiv} class="w-full h-full" />
 </div>

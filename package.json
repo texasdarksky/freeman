@@ -45,6 +45,7 @@
   "dependencies": {
     "@floating-ui/dom": "1.5.3",
     "colormap": "^2.3.2",
-    "ol": "^8.1.0"
+    "ol": "^8.1.0",
+    "ol-pmtiles": "^0.3.0"
   }
 }
