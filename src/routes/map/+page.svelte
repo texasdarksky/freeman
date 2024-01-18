@@ -11,8 +11,10 @@
 	import TileLayer from 'ol/layer/Tile';
 	import VectorLayer from 'ol/layer/Vector';
 	import { fromLonLat, useGeographic } from 'ol/proj';
-	// import WebGLTile from 'ol/layer/WebGLTile';
-	// import { PMTilesRasterSource } from 'ol-pmtiles';
+
+	import * as pmtiles from 'pmtiles';
+	import DataTile from 'ol/source/DataTile';
+	import WebGLTileLayer from 'ol/layer/WebGLTile';
 
 	let mapDiv: HTMLDivElement;
 	const view = new View({
@@ -36,15 +38,39 @@
 	// 	})
 	// });
 
-	// const rasterLayer = new WebGLTile({
-	// 	source: new PMTilesRasterSource({
-	// 		url: '/geodata/output.pmtiles',
-	// 		// attributions: ['https://github.com/tilezen/joerd/blob/master/docs/attribution.md'],
-	// 		tileSize: [512, 512]
-	// 	})
-	// });
+	useGeographic();
 
-	// useGeographic();
+	const tiles = new pmtiles.PMTiles(
+		'https://r2-public.protomaps.com/protomaps-sample-datasets/terrarium_z9.pmtiles'
+	);
+
+	function loadImage(src) {
+		return new Promise((resolve, reject) => {
+			const img = new Image();
+			img.addEventListener('load', () => resolve(img));
+			img.addEventListener('error', () => reject(new Error('load failed')));
+			img.src = src;
+		});
+	};
+
+	async function loader(z: number, x: number, y: number) {
+		const response = await tiles.getZxy(z, x, y);
+		const blob = new Blob([response.data]);
+		const src = URL.createObjectURL(blob);
+		const image = await loadImage(src);
+		URL.revokeObjectURL(src);
+		return image;
+	};
+
+	const rasterLayer = new WebGLTileLayer({
+		source: new DataTile({
+			loader,
+			wrapX: true,
+			maxZoom: 9,
+			attributions:
+				"<a href='https://github.com/tilezen/joerd/blob/master/docs/attribution.md#attribution'>Tilezen Jörð</a>"
+		}),
+	});
 
 	onMount(() => {
 		map = new Map({
@@ -54,7 +80,7 @@
 		map.addLayer(background);
 		map.addLayer(alrLayer2012);
 		// map.addLayer(alrLayer2012old);
-		// map.addLayer(rasterLayer);
+		map.addLayer(rasterLayer);
 	});
 
 	export let data: PageData;
