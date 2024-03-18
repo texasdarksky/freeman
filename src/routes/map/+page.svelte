@@ -80,7 +80,7 @@
 		map.addLayer(background);
 		map.addLayer(alrLayer2012);
 		// map.addLayer(alrLayer2012old);
-		map.addLayer(rasterLayer);
+		// map.addLayer(rasterLayer);
 	});
 
 	export let data: PageData;
