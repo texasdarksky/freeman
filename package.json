@@ -15,6 +15,7 @@
     "test:unit": "vitest"
   },
   "devDependencies": {
+    "@melt-ui/svelte": "^0.76.0",
     "@playwright/test": "^1.40.1",
     "@skeletonlabs/skeleton": "2.7.0",
     "@skeletonlabs/tw-plugin": "0.3.1",
@@ -25,6 +26,7 @@
     "@tailwindcss/forms": "0.5.7",
     "@tailwindcss/typography": "0.5.10",
     "@types/eslint": "8.56.0",
+    "@types/luxon": "^3.4.2",
     "@types/node": "20.11.0",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
@@ -47,10 +49,13 @@
   "type": "module",
   "dependencies": {
     "@floating-ui/dom": "1.5.4",
+    "bits-ui": "^0.19.7",
     "highlight.js": "11.9.0",
-    "layercake": "^8.0.2",
+    "layercake": "^8.1.1",
+    "luxon": "^3.4.4",
     "ol": "^8.2.0",
     "ol-pmtiles": "^0.3.0",
-    "pmtiles": "^2.11.0"
+    "pmtiles": "^2.11.0",
+    "regl": "^2.1.0"
   }
 }

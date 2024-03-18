@@ -3,17 +3,17 @@
 # Number of header lines: 39
 # This data is released under the following license: ODbL 1.0 http://opendatacommons.org/licenses/odbl/summary/
 # Device type: SQM-LU-DL-R2
-# Instrument ID: 
-# Data supplier: 
+# Instrument ID:
+# Data supplier:
 # Location name: The Freeman Center
 # Position (lat, lon, elev(m)): 29.92559, -97.99284, 254.508
 # Local timezone: CST6CDT
-# Time Synchronization: 
+# Time Synchronization:
 # Moving / Stationary position: STATIONARY
 # Moving / Fixed look direction: FIXED
 # Number of channels: 1
-# Filters per channel: 
-# Measurement direction per channel: 
+# Filters per channel:
+# Measurement direction per channel:
 # Field of view (degrees): 20
 # Number of fields per line: 5
 # SQM serial number: 6547
@@ -26,11 +26,11 @@
 # SQM readout test Ix (Report Interval): 0000000000s,0000000000s,00000000.00m,00000000.00m
 # DL time difference (seconds): 5
 # DL retrieved at (UTC): 2023-11-09T19:16:02.176
-# Comment: 
-# Comment: 
-# Comment: 
-# Comment: 
-# Comment: 
+# Comment:
+# Comment:
+# Comment:
+# Comment:
+# Comment:
 # UDM version: 1.0.0.329
 # UDM setting: DL binary retrieve
 # blank line
