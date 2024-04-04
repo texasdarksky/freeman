@@ -2,7 +2,6 @@ import { error } from "@sveltejs/kit";
 import type { PageLoad } from "./$types";
 import { getLineFromMetadata, metadataTimezone, data2json } from "$lib/utils";
 
-
 let text: string;
 let items: Array<String> = [];
 
@@ -36,7 +35,7 @@ export const load: PageLoad = async ({ fetch }) => {
         });
 
         let dataj = data2json(data, tz);
-        console.log(dataj);
+        // console.log(dataj);
         
         return {
             // sqm: JSON.stringify(data),

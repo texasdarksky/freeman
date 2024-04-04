@@ -1,20 +1,25 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	export let data: PageData;
+
 	import { LayerCake, Svg, Canvas, WebGL, Html } from 'layercake';
 	import { DateRangePicker, type DateRange } from 'bits-ui';
 	import { fade } from 'svelte/transition';
 	// import { cn, flyAndScale } from '@/utils/index.js';
+	import { cn } from '$lib/utils';
 	import { CaretLeft, CaretRight, Calendar } from '$icons/index';
 
-	let value: DateRange | undefined = undefined;
-
-	export let data: PageData;
+	import { Observer } from '$lib/astronomy';
 
 	import AxisX from './components/AxisX.svelte';
 	import AxisY from './components/AxisY.svelte';
 	// import Line from './components/Line.svelte';
 	import Scatter from './components/Scatter.svelte';
 	// import Labels from './components/Labels.svelte';
+
+	let value: DateRange | undefined = undefined;
+
+	const observer = new Observer(29.3, -97.8, 263);
 </script>
 
 <div class="container w-100%">
@@ -66,12 +71,10 @@
 					<DateRangePicker.Trigger
 						class="ml-auto inline-flex size-8 items-center justify-center rounded-[5px] text-foreground/60 transition-all hover:bg-muted active:bg-dark-10"
 					>
-						<!-- <CalendarBlank class="size-6" /> -->
 						<Calendar />
 					</DateRangePicker.Trigger>
 				</DateRangePicker.Input>
 				<DateRangePicker.Content sideOffset={6} transition={fade} class="z-50">
-				<!-- <DateRangePicker.Content sideOffset={6} class="z-50"> -->
 					<DateRangePicker.Calendar
 						class="mt-6 rounded-15px border border-dark-10 bg-background-alt p-[22px] shadow-popover"
 						let:months
@@ -81,14 +84,12 @@
 							<DateRangePicker.PrevButton
 								class="inline-flex size-10 items-center justify-center rounded-9px bg-background-alt transition-all hover:bg-muted active:scale-98"
 							>
-								<!-- <CaretLeft class="size-6" /> -->
 								<CaretLeft />
 							</DateRangePicker.PrevButton>
 							<DateRangePicker.Heading class="text-[15px] font-medium" />
 							<DateRangePicker.NextButton
 								class="inline-flex size-10 items-center justify-center rounded-9px bg-background-alt transition-all hover:bg-muted active:scale-98"
 							>
-								<!-- <CaretRight class="size-6" /> -->
 								<CaretRight />
 							</DateRangePicker.NextButton>
 						</DateRangePicker.Header>
@@ -147,6 +148,8 @@
 			y="msas"
 			xPadding={[10, 5]}
 			yPadding={[10, 5]}
+			yDomain = { ({ width, height}) => [height, width] }
+			yRange = { ({ width, height}) => [height, width] }
 			data={data.dataj}
 		>
 			<Svg>

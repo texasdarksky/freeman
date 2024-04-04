@@ -1,0 +1,19 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The Freeman Center"
+            },
+            "geometry": {
+                "coordinates": [
+                    -97.99284,
+                    29.92559,
+                    254.508
+                ],
+                "type": "Point"
+            }
+        }
+    ]
+}
